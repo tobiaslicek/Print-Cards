@@ -2,25 +2,28 @@
     <h1>Vánoční stromky</h1>
 
     <div class="table-responsive">
-        <table class="table">
+        <table class="table" id="treesTable">
             <thead class="thead-light">
                 <tr>
-										<th scope="col">Výběr</th>
+                    <th scope="col">
+                        <input type="checkbox" id="selectAll" style="margin-right: 15px;">
+                    </th>
                     <th scope="col">Jméno</th>
                     <th scope="col">Podjméno</th>
                     <th scope="col">Ikona</th>
+                    <th scope="col">Akce</th>
                 </tr>
             </thead>
             <tbody>
                 {foreach $trees as $tree}
                     <tr>
-												<td> 
-													<input type="checkbox" name="selected[]" value="{$tree->id}">
-												</td>
+                        <td>
+                            <input type="checkbox" name="selected[]" value="{$tree->id}" class="rowCheckbox">
+                        </td>
                         <td>{$tree->name}</td>
                         <td>{if $tree->second_name !== null}{$tree->second_name}{else}{/if}</td>
                         <td>
-                          <img src="{$tree->icon}" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 100px; height: auto;">
+                            <img src="{$tree->icon}" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 100px; height: auto;">
                         </td>
 												<td>
 													<a n:href="Edit:edit $tree->id">Upravit příspěvek</a>
@@ -30,8 +33,17 @@
             </tbody>
         </table>
     </div>
-		<a n:href="Edit:create">Přidat nový stromek</a>
+    <a n:href="Edit:create">Přidat nový stromek</a>
+    <script>
+        document.getElementById('selectAll').addEventListener('click', function(e) {
+            var checkboxes = document.querySelectorAll('.rowCheckbox');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        });
+    </script>
 {/block}
+
 
 
 
