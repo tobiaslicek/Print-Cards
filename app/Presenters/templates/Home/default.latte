@@ -5,6 +5,7 @@
         <table class="table">
             <thead class="thead-light">
                 <tr>
+										<th scope="col">Výběr</th>
                     <th scope="col">Jméno</th>
                     <th scope="col">Podjméno</th>
                     <th scope="col">Ikona</th>
@@ -13,11 +14,17 @@
             <tbody>
                 {foreach $trees as $tree}
                     <tr>
+												<td> 
+													<input type="checkbox" name="selected[]" value="{$tree->id}">
+												</td>
                         <td>{$tree->name}</td>
                         <td>{if $tree->second_name !== null}{$tree->second_name}{else}{/if}</td>
                         <td>
-                            <img src="{$tree->icon}" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 100px; height: auto;">
+                          <img src="{$tree->icon}" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 100px; height: auto;">
                         </td>
+												<td>
+													<a n:href="Edit:edit $tree->id">Upravit příspěvek</a>
+												</td>
                     </tr>
                 {/foreach}
             </tbody>
@@ -25,3 +32,8 @@
     </div>
 		<a n:href="Edit:create">Přidat nový stromek</a>
 {/block}
+
+
+
+
+{* udělat checkboxy, přidělat checkbox pro smazání všech,  edit + smazat - pro smazání z databáze, udělat čísalování,  *}

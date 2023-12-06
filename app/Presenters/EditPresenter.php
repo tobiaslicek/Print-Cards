@@ -27,16 +27,31 @@ final class EditPresenter extends Nette\Application\UI\Presenter
         return $form;
     }
 
-    private function postFormSucceeded(array $data): void
-    {
-        $this->database
+   public function postFormSucceeded(array $data): void
+{
+    $treeId = $this->getParameter('treeId');
+
+    if ($treeId) {
+        $tree = $this->database
+            ->table('trees')
+            ->get($treeId);
+        
+        if ($tree) {
+            $tree->update($data);
+            $this->flashMessage("Stromek byl úspěšně aktualizován.", 'success');
+            $this->redirect('Home:default');
+        } else {
+            $this->error('Tree not found');
+        }
+    } else {
+        $tree = $this->database
             ->table('trees')
             ->insert($data);
-
-        $treeId = $this->database->getInsertId(); 
+        
         $this->flashMessage("Stromek byl úspěšně přidán.", 'success');
-        $this->redirect('Home:default');
+         $this->redirect('Home:default');
     }
+}
 
     public function renderEdit(int $treeId): void
     {
@@ -48,7 +63,8 @@ final class EditPresenter extends Nette\Application\UI\Presenter
             $this->error('Tree not found');
         }
 
-        $this->getComponent('treeForm')
+        $this->getComponent('postForm')
             ->setDefaults($tree->toArray());
     }
+
 }
