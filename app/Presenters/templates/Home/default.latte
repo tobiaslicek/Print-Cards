@@ -8,7 +8,7 @@
                     <th scope="col">
                         <input type="checkbox" id="selectAll" style="margin-right: 15px;">
                     </th>
-										<th scope="col">#</th>
+										<th scope="col"># </th>
                     <th scope="col">Jméno</th>
                     <th scope="col">Podjméno</th>
                     <th scope="col">Ikona</th>
@@ -29,6 +29,7 @@
                         </td>
 												<td>
 													<a n:href="Edit:edit $tree->id">Upravit příspěvek</a>
+													<a n:href="Delete:delete $tree->id" class="ml-2">Smazat</a>
 												</td>
                     </tr>
                 {/foreach}
@@ -50,4 +51,12 @@
 
 
 
-{* udělat checkboxy☑️, přidělat checkbox pro smazání všech☑️,  edit + smazat - pro smazání z databáze, udělat čísalování,  zobrazit/vygenerovat*}
+{* 
+udělat checkboxy☑️ 
+přidělat checkbox pro smazání všech☑️ 
+edit ☑️ 
+smazat - pro smazání z databáze 
+udělat čísalování ☑️  
+zobrazit, přidávání variant 
+front-co je vypsané v databázi, to mít na url, v detailu karty pak mít rozměry 
+*}
