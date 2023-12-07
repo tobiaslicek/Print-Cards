@@ -28,8 +28,9 @@
                             <img src="{$tree->icon}" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 100px; height: auto;">
                         </td>
 												<td>
-													<a n:href="Edit:edit $tree->id">Upravit příspěvek</a>
-													<a n:href="Delete:delete $tree->id" class="ml-2">Smazat</a>
+													<a n:href="Edit:edit $tree->id">Upravit</a>
+													<a n:href="Delete:delete $tree->id" style="margin-left: 12px;">Smazat</a>
+													<a n:href="Label:default, treeId => $tree->id" style="margin-left: 12px;">Karta</a>
 												</td>
                     </tr>
                 {/foreach}
@@ -55,7 +56,7 @@
 udělat checkboxy☑️ 
 přidělat checkbox pro smazání všech☑️ 
 edit ☑️ 
-smazat - pro smazání z databáze 
+smazat - pro smazání z databáze ☑️
 udělat čísalování ☑️  
 zobrazit, přidávání variant 
 front-co je vypsané v databázi, to mít na url, v detailu karty pak mít rozměry 

@@ -1,0 +1,113 @@
+:root {
+  --main-bg-color: #f0f0f0;
+  --secondary-bg-color: #fff;
+  --text-color: #666;
+  --accent-color: #c42b2b;
+  --secondary-color: #77552b;
+  --border-color: #9a9999;
+  --heading-color: #0a7a0f;
+}
+
+body {
+  /* background-color: var(--main-bg-color); */
+  color: var(--text-color);
+}
+
+h1,
+h2 {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+article {
+  width: 95mm;
+  position: relative;
+  border: 2px solid var(--border-color);
+  margin: 20px;
+  padding: 10px 10px 70px;
+}
+header,
+.variant {
+  background-color: var(--secondary-bg-color);
+  margin-bottom: 4px;
+  padding: 8px 12px;
+}
+
+header {
+  text-align: center;
+  padding: 16px 12px;
+  position: relative;
+  margin-bottom: 9px;
+}
+
+section {
+  margin-bottom: -35px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--border-color);
+  padding-top: 8px;
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
+}
+
+.logo {
+  height: 28px;
+  position: absolute;
+  top: 50%;
+  left: -34px;
+  transform: translateY(-50%) rotate(270deg);
+}
+
+.snowflake {
+  position: absolute;
+  top: 40px;
+  right: 16px;
+  height: 3rem;
+}
+
+.variant {
+  margin-bottom: -15px;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -20px;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+  color: var(--heading-color);
+  text-transform: to uppercase;
+}
+
+.sub-heading {
+  color: var(--secondary-color);
+}
+
+h2 {
+  font-size: 1.3em;
+  color: var(--secondary-color);
+  margin: 8px 0;
+}
+
+.price {
+  color: var(--accent-color);
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.branch,
+.diameter {
+  font-size: 0.9em;
+}
+
+.branch {
+  margin-bottom: -10px;
+}
