@@ -6,11 +6,13 @@ img {
 }
 
 .name {
-  margin-bottom: 7px;
+  margin-bottom: 9px;
+  font-weight: bold;
 }
 
 .second-name {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  font-weight: bold;
 }
 
 .icon-selection {

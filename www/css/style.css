@@ -4,12 +4,13 @@ body {
   width: 600px;
   color: #333;
   background-color: #fff;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Flash messages styling - typically used for notifications or alerts */
 div.flash {
-  color: black;
-  background: #fff9d7;
+  color: #fff;
+  background: #cb9540;
   border: 1px solid #e2c822;
   padding: 1em;
   margin: 1em 0;
@@ -19,6 +20,17 @@ div.flash {
 a[href^='#error:'] {
   background: red;
   color: white;
+}
+
+a:link,
+a:visited {
+  color: #754d39;
+}
+
+a:hover,
+a:active {
+  color: #0a58ca;
+  text-decoration: none;
 }
 
 /* Form styles */
@@ -41,4 +53,20 @@ form .required label {
 form .error {
   color: #d00;
   font-weight: bold;
+}
+
+.btn-succes {
+  margin-left: 5rem;
+  background-color: #359939;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 16x;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-succes:hover {
+  background-color: #297c2c;
 }

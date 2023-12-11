@@ -1,4 +1,24 @@
 {block content}
+<link rel="stylesheet" href="{$basePath}/css/create.css?{time()}">
+
 <h1>Upravit</h1>
 
-{control postForm}
+<form n:name="postForm" class="form">
+    <div class="name">
+        <label n:name="name">Název stromku: <input n:name="name" size="20" autofocus></label>
+    </div>
+    <div class="second-name">
+        <label n:name="second_name">Podnázev: <input n:name="second_name"></label>
+    </div>
+    <div class="icon-selection">
+        {foreach $form['icon']->getItems() as $key => $imagePath}
+            <label n:name="icon:$key">
+                <input n:name="icon:$key" type="radio" value="{$key}">
+                <img src="{$basePath}{$imagePath}" alt="{$key}">
+            </label>
+        {/foreach}
+    </div>
+    <div>
+        <input n:name="send" class="btn btn-succes" type="submit" value="Uložit a publikovat">
+    </div>
+</form>
