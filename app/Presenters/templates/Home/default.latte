@@ -19,9 +19,10 @@
                         <td>{$index}</td>
                         <td>{$tree->name}</td>
                         <td>{$tree->second_name}</td>
-                        <td>
-                            <img src="{$basePath}/imgs/icons/{$tree->icon}.png" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 32px; height: auto;">
-                        </td>
+                       <td>
+            {var $iconFileName = $tree->icon === 'šiška' ? 'pinecone' : ($tree->icon === 'vločka' ? 'snowflake' : '3d')}
+            <img src="{$basePath}/imgs/icons/{$iconFileName}.png" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 32px; height: auto;">
+        </td>
                         <td>
                             <a n:href="Edit:edit $tree->id">Upravit</a>
                             <a n:href="Delete:delete $tree->id" style="margin-left: 12px;">Smazat</a>

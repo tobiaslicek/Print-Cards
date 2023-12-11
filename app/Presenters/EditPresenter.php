@@ -34,6 +34,16 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 
    public function postFormSucceeded(array $data): void
 {
+    $iconTranslations = [
+        '3d' => '3D',
+        'pinecone' => 'šiška',
+        'snowflake' => 'vločka',
+    ];
+
+    if (isset($data['icon']) && array_key_exists($data['icon'], $iconTranslations)) {
+        $data['icon'] = $iconTranslations[$data['icon']];
+    }
+
     $treeId = $this->getParameter('treeId');
 
     if ($treeId) {
