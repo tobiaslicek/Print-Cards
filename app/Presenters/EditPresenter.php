@@ -11,21 +11,26 @@ final class EditPresenter extends Nette\Application\UI\Presenter
     ) {
     }
 
-    protected function createComponentPostForm(): Form
-    {
-        $form = new Form;
-        $form->addText('name', 'Název stromku:')
-            ->setRequired();
-        $form->addText('second_name', 'Podnázev:')
-            ->setNullable();
-        $form->addText('icon', 'Ikona:')
-            ->setNullable();
+   protected function createComponentPostForm(): Form
+{
+    $form = new Form;
+    $form->addText('name', 'Název stromku:')
+        ->setRequired();
+    $form->addText('second_name', 'Podnázev:')
+        ->setNullable();
+    $icons = [
+        '3d' => "/imgs/icons/3d.png",
+        'pinecone' => "/imgs/icons/pinecone.png",
+        'snowflake' => "/imgs/icons/snowflake.png",
+    ];
+    $form->addRadioList('icon', 'Ikona:', $icons)
+        ->setRequired();
 
-        $form->addSubmit('send', 'Uložit a publikovat');
-        $form->onSuccess[] = [$this, 'postFormSucceeded'];
+    $form->addSubmit('send', 'Uložit a publikovat');
+    $form->onSuccess[] = [$this, 'postFormSucceeded'];
 
-        return $form;
-    }
+    return $form;
+}
 
    public function postFormSucceeded(array $data): void
 {

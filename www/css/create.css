@@ -1,0 +1,18 @@
+img {
+  width: 58px;
+  height: 58px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.name {
+  margin-bottom: 7px;
+}
+
+.second-name {
+  margin-bottom: 20px;
+}
+
+.icon-selection {
+  margin-bottom: 20px;
+}
