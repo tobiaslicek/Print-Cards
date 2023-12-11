@@ -70,3 +70,17 @@ form .error {
 .btn-succes:hover {
   background-color: #297c2c;
 }
+
+#treesTable th {
+  font-weight: bold;
+}
+
+.delete-btn,
+.delete-btn:visited {
+  background-color: #b0802f;
+}
+
+.delete-btn:hover,
+.delete-btn:active {
+  background-color: #7e5c22;
+}

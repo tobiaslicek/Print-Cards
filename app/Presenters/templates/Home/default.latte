@@ -1,39 +1,44 @@
 {block content}
     <h1>Vánoční stromky</h1>
     <div class="table-responsive">
-        <table class="table" id="treesTable">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col"><input type="checkbox" id="selectAll" style="margin-right: 15px;"></th>
-                    <th scope="col">#</th>
-                    <th scope="col">Jméno</th>
-                    <th scope="col">Podjméno</th>
-                    <th scope="col">Ikona</th>
-                    <th scope="col">Akce</th>
-                </tr>
-            </thead>
-            <tbody>
-                {foreach $trees as $index => $tree}
+        <form method="post" action="{$basePath}/deleteSelected">
+            <table class="table" id="treesTable">
+                <thead class="thead-light">
                     <tr>
-                        <td><input type="checkbox" name="selected[]" value="{$tree->id}" class="rowCheckbox"></td>
-                        <td>{$index}</td>
-                        <td>{$tree->name}</td>
-                        <td>{$tree->second_name}</td>
-                       <td>
-            {var $iconFileName = $tree->icon === 'šiška' ? 'pinecone' : ($tree->icon === 'vločka' ? 'snowflake' : '3d')}
-            <img src="{$basePath}/imgs/icons/{$iconFileName}.png" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 32px; height: auto;">
-        </td>
-                        <td>
-                            <a n:href="Edit:edit $tree->id">Upravit</a>
-                            <a n:href="Delete:delete $tree->id" style="margin-left: 12px;">Smazat</a>
-                            <a n:href="Label:default, treeId => $tree->id" style="margin-left: 12px;">Karta</a>
-                        </td>
+                        <th scope="col"><input type="checkbox" id="selectAll" style="margin-right: 15px;"></th>
+                        <th scope="col">#</th>
+                        <th scope="col">Jméno</th>
+                        <th scope="col">Podjméno</th>
+                        <th scope="col">Ikona</th>
+                        <th scope="col">Akce</th>
                     </tr>
-                {/foreach}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {foreach $trees as $index => $tree}
+                        <tr>
+                            <td><input type="checkbox" name="selected[]" value="{$tree->id}" class="rowCheckbox"></td>
+                            <td>{$index}</td>
+                            <td>{$tree->name}</td>
+                            <td>{$tree->second_name}</td>
+                            <td>
+                                {var $iconFileName = $tree->icon === 'šiška' ? 'pinecone' : ($tree->icon === 'vločka' ? 'snowflake' : '3d')}
+                                <img src="{$basePath}/imgs/icons/{$iconFileName}.png" alt="Icon of {$tree->name}" class="img-thumbnail" style="max-width: 32px; height: auto;">
+                            </td>
+                            <td>
+                                <a n:href="Edit:edit $tree->id">Upravit</a>
+                                <a n:href="Delete:delete $tree->id" style="margin-left: 12px;">Smazat</a>
+                                <a n:href="Label:default, treeId => $tree->id" style="margin-left: 12px;">Karta</a>
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+            <div style="display: flex; justify-content: flex-start; align-items: center; margin-bottom: 40px;">
+                <input type="submit" value="Smazat vybrané" class="btn btn-succes delete-btn" style="margin-right: 15px;">
+                <a n:href="Edit:create" class="btn btn-primary">Přidat nový stromek</a>
+            </div>
+        </form>
     </div>
-    <a style="margin-bottom: 400px;" n:href="Edit:create">Přidat nový stromek</a>
     <script>
         document.getElementById('selectAll').addEventListener('click', function(e) {
             var checkboxes = document.querySelectorAll('.rowCheckbox');
@@ -49,15 +54,16 @@
 
 
 
+
 {* 
 udělat checkboxy☑️ 
 přidělat checkbox pro smazání všech☑️ 
 edit ☑️ 
 smazat - pro smazání z databáze ☑️
 udělat čísalování ☑️  
-zobrazit, přidávání variant 
-zobrazit reálnou ikonu na detailu
-přidat button smazat dole, velde přidávání příspěvku, který bude umožnovat mazání více položek
+zobrazit, přidávání variant ☑️ 
+zobrazit reálnou ikonu na detailu 
+přidat button smazat dole, vedle přidávání příspěvku, který bude umožnovat mazání více položek
 propojit druhou databázi
 front-co je vypsané v databázi, to mít na url ☑️
 v detailu karty pak mít rozměry 

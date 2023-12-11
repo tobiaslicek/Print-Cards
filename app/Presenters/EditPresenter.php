@@ -69,17 +69,28 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 }
 
     public function renderEdit(int $treeId): void
-    {
-        $tree = $this->database
-            ->table('trees')
-            ->get($treeId);
+{
+    $tree = $this->database
+        ->table('trees')
+        ->get($treeId);
 
-        if (!$tree) {
-            $this->error('Tree not found');
-        }
-
-        $this->getComponent('postForm')
-            ->setDefaults($tree->toArray());
+    if (!$tree) {
+        $this->error('Tree not found');
     }
+
+    $iconReverseTranslations = [
+        '3D' => '3d',
+        'šiška' => 'pinecone',
+        'vločka' => 'snowflake',
+    ];
+
+    $treeData = $tree->toArray();
+    if (array_key_exists($treeData['icon'], $iconReverseTranslations)) {
+        $treeData['icon'] = $iconReverseTranslations[$treeData['icon']];
+    }
+
+    $this->getComponent('postForm')->setDefaults($treeData);
+}
+
 
 }
