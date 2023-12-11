@@ -1,28 +1,27 @@
-{block content}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stromky</title>
-    <link rel="stylesheet" href="{$basePath}/css/label.css">
-  </head>
-    <body>
-    <article>
-      <header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stromky</title>
+  <link rel="stylesheet" href="{$basePath}/css/label.css?{time()}">
+</head>
+<body>
+  <article>
+    <header>
       <img class="logo" src="{$basePath}/imgs/logo-zanapo-cz.svg" alt="Zanapo logo" />
-        <h1>
-          {$tree->name} <br />
-          <span class="sub-heading"> {$tree->second_name} </span>
-        </h1>
-        <img class="tree-icon" src="{$tree->icon}" alt="Icon of {$tree->name}" />
-      </header>
-      <section>
-      </section>
-      <footer>
-        <p>Ceny jsou uvedeny vč. 21% DPH.</p>
-      </footer>
-    </article>
-  </body>
+      <h1>
+        {$tree->name} <br />
+        <span class="sub-heading"> {$tree->second_name} </span>
+      </h1>
+      {var $iconFileName = $tree->icon === '3D' ? '3d.png' : ($tree->icon === 'cone' ? 'pinecone.png' : ($tree->icon === 'snowflake' ? 'snowflake.png' : 'default.png'))}
+      <img class="tree-icon" src="{$basePath}/imgs/icons/{$iconFileName}" alt="Icon of {$tree->name}" />
+    </header>
+    <section>
+    </section>
+    <footer>
+      <p>Ceny jsou uvedeny vč. 21% DPH.</p>
+    </footer>
+  </article>
+</body>
 </html>
-
