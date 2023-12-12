@@ -24,5 +24,7 @@ final class DeletePresenter extends Nette\Application\UI\Presenter
         $tree->delete();
         $this->flashMessage("Stromek byl úspěšně smazán.", 'success');
         $this->redirect('Home:default');
-    }
+    }   
 }
+
+

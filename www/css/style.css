@@ -41,7 +41,7 @@ form td {
 }
 
 form th {
-  text-align: right;
+  text-align: center;
 }
 
 /* Highlight required form fields */

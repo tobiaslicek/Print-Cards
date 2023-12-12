@@ -101,11 +101,10 @@ footer {
 h1 {
   font-size: 3em;
   margin: 0;
-  margin-left: 30px;
+  margin-left: 50px;
   color: var(--heading-color);
   text-transform: to uppercase;
   flex-grow: 1;
-  text-align: center;
 }
 
 .sub-heading {
@@ -134,8 +133,8 @@ h2 {
 }
 
 .tree-icon {
-  height: 45px;
-  width: 45px;
-  margin-right: 10px;
+  height: 48px;
+  width: 48px;
+  margin-right: 1px;
   position: static;
 }

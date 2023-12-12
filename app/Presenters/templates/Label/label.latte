@@ -14,8 +14,8 @@
         {$tree->name} <br />
         <span class="sub-heading"> {$tree->second_name} </span>
       </h1>
-      {var $iconFileName = $tree->icon === '3D' ? '3d.png' : ($tree->icon === 'cone' ? 'pinecone.png' : ($tree->icon === 'snowflake' ? 'snowflake.png' : 'default.png'))}
-      <img class="tree-icon" src="{$basePath}/imgs/icons/{$iconFileName}" alt="Icon of {$tree->name}" />
+      {var $iconFileName = $tree->icon === 'šiška' ? 'pinecone' : ($tree->icon === 'vločka' ? 'snowflake' : '3d')}
+            <img class="tree-icon" src="{$basePath}/imgs/icons/{$iconFileName}.png" alt="Icon of {$tree->name}" />
     </header>
     <section>
     </section>
